@@ -33,8 +33,8 @@ In this tutorial, we’ll use the Ionic Framework’s UI components to create a 
 In order to follow this tutorial, the following tools are required:
 
 * npm and Node: As Ionic projects are built using modern web technologies, [download and install Node and npm](https://nodejs.org/en/download/), the popular JavaScript package manager.
-* Xcode and/or Android Studio, along with a mobile device: We’ll be deploying the app to your mobile device of choice, so iOS and Android native tooling is required. Xcode is downloaded from the Mac App Store and Android Studio [here](https://developer.android.com/studio/).
-* Code editor: [VSCode](https://code.visualstudio.com/) is a great choice.
+* Xcode and/or Android Studio, along with a mobile device: You’ll be deploying the app to your mobile device of choice, so iOS and Android native tooling is required. Xcode is downloaded from the Mac App Store and Android Studio can be downloaded from the [official Android Studio site](https://developer.android.com/studio/).
+* Code editor: [Visual Studio Code](https://code.visualstudio.com/) is a great choice.
 
 ## Configuring Auth0
 
@@ -44,7 +44,7 @@ Before creating the Ionic app, we’ll get Auth0 up and running. If you don’t 
 
 Next, determine your globally unique App Id, which is used both in Auth0 configuration as well as Cordova/Capacitor as well. Typically, this takes the form of “company-AppName” or reverse DNS style - “com.company.app.”
 
-With that in hand, set the *Allowed Callback URLs*. After the app user signs into Auth0, this tells Auth Connect which page to redirect to in your app. Use formula “uniqueId://page”, such as “company-AppName://callback.”
+With that in hand, set the *Allowed Callback URLs*. After the app user signs into Auth0, this tells Auth Connect which page to redirect to in your app. Use the formula “uniqueId://page”, such as “company-AppName://callback.”
 
 Similarly, set the *Allowed Logout URLs*, which tell Auth Connect where to redirect to after the user logs out of Auth0. Again, use the “uniqueId://page” format. Usually, the app would redirect the user to a login page, so consider using “company-AppName://login.”
 
@@ -164,7 +164,7 @@ ionic build
 ionic cap add [platform]
 ```
 
-Next, regardless of the native runtime you’ve chosen, run the following to install the Auth Connect plugin. For the AUTH_URL_SCHEME variable, use the globally unique App Id (ex: com.company.app) you decided on when configuring the Auth0 app above.
+Next, regardless of the native runtime you’ve chosen, run the following to install the Auth Connect plugin. For the `AUTH_URL_SCHEME` variable, use the globally unique App Id (ex: com.company.app) you decided on when configuring the Auth0 app above.
 
 ```shell
 # Install the Auth Connect plugin
@@ -264,23 +264,23 @@ export class AuthenticationService extends IonicAuth {
 
 Some of these `IonicAuthOptions` values are unique, and must be set based on your Auth0 app’s details:
 
-* platform: Use “cordova” or “capacitor” accordingly.
-* clientID: Your app’s Client ID.
-* discoveryUrl: Consists of your Auth0 Domain plus “.well-known/openid-configuration”. Example: https://ionicorg.auth0.com/.well-known/openid-configuration
-* redirectUri: The URI to redirect to after the user has logged in. Use the same AUTH_URL_SCHEME variable value (App Id) from when the Auth Connect plugin was installed. Example: com.company.app://callback
-* logoutUrl: The URI to redirect to after the user has logged out. Example: com.company.app://login?logout=true
+* `platform`: Use “cordova” or “capacitor” accordingly.
+* `clientID`: Your app’s Client ID.
+* `discoveryUrl`: Consists of your Auth0 Domain plus “.well-known/openid-configuration”. Example: https://ionicorg.auth0.com/.well-known/openid-configuration
+* `redirectUri`: The URI to redirect to after the user has logged in. Use the same AUTH_URL_SCHEME variable value (App Id) from when the Auth Connect plugin was installed. Example: com.company.app://callback
+* `logoutUrl`: The URI to redirect to after the user has logged out. Example: com.company.app://login?logout=true
 
 The Discovery URL can be found under Application Details -> Show Advanced Settings -> Endpoints tab:
 
 ![Finding the Discovery URL](auth0-discoveryUrl.png)
 
-The audience field comes from your custom API of choice - the API Audience field:
+The audience field comes from your custom API of choice &mdash; the API Audience field:
 
 ![Finding the API Audience field](auth0-audience.png)
 
 ## Complete the Login Experience
 
-Back in `login.page.ts`, import `AuthenticationService` then call its login function when the button is clicked. As a bonus user experience enhancement, display a progress indicator while the user is logging into Auth0 using the Ionic `ion-loading` [loading indicator component](https://ionicframework.com/docs/api/loading). 
+Back in `login.page.ts`, import `AuthenticationService` and call its login function when the button is clicked. As a bonus user experience enhancement, display a progress indicator while the user is logging into Auth0 using the Ionic `ion-loading` [loading indicator component](https://ionicframework.com/docs/api/loading). 
 
 ```javascript
 async login() {
