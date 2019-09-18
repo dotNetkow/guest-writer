@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Adding Auth0 login to an Ionic Angular app using Auth Connect"
+title: "Adding Auth0 to an Ionic Angular App Using Auth Connect"
 description: "Learn how to secure your Ionic app by adding user authentication with Auth0 and Ionic Auth Connect."
 date: "2019-09-12 08:30"
 author:
