@@ -32,7 +32,7 @@ In this tutorial, we’ll use the Ionic Framework’s UI components to create a 
 
 In order to follow this tutorial, the following tools are required:
 
-* npm and Node: As Ionic projects are built using modern web technologies, [download Node](https://nodejs.org/en/download/), the popular JavaScript package manager.
+* npm and Node: As Ionic projects are built using modern web technologies, [download and install Node and npm](https://nodejs.org/en/download/), the popular JavaScript package manager.
 * Xcode and/or Android Studio, along with a mobile device: We’ll be deploying the app to your mobile device of choice, so iOS and Android native tooling is required. Xcode is downloaded from the Mac App Store and Android Studio [here](https://developer.android.com/studio/).
 * Code editor: [VSCode](https://code.visualstudio.com/) is a great choice.
 
