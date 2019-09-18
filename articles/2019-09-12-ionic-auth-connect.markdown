@@ -22,9 +22,11 @@ related:
 
 [Ionic Auth Connect](https://ionicframework.com/auth-connect) makes it easy to add secure authentication to any Ionic app running on iOS, Android, or the web. Using a simple, powerful API, it handles logging in and/or registering a user with an authentication provider (such as Auth0) using industry-standard OAuth/OpenId Connect.
 
-## What Will We Build?
+> Note: Auth Connect requires an [Ionic Native Enterprise Edition](https://ionicframework.com/docs/enterprise) key in order to install and use the Ionic Auth Connect plugin. Enterprise Edition includes a reliable set of Native APIs & functionality that you can use in your Ionic app, quality controlled and maintained by the Ionic Team. If you are interested in acquiring a key or learning more, please [contact Ionic](https://ionicframework.com/enterprise/contact).
 
-In this tutorial, we’ll use the Ionic Framework’s UI components to create a Login page and a Home page within an Ionic Angular app. With just a few lines of code, we’ll secure the Home page by adding Auth0 login/logout functionality using the Auth Connect native plugin. Here’s what the complete app looks like in action:
+## What Will You Build?
+
+In this tutorial, you’ll use the Ionic Framework’s UI components to create a Login page and a Home page within an Ionic Angular app. With just a few lines of code, you’ll secure the Home page by adding Auth0 login/logout functionality using the Auth Connect native plugin. Here’s what the complete app looks like in action:
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/L04P2ydnUB4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
@@ -38,7 +40,7 @@ In order to follow this tutorial, the following tools are required:
 
 ## Configuring Auth0
 
-Before creating the Ionic app, we’ll get Auth0 up and running. If you don’t have one already, create a [free Auth0 account](https://auth0.com) then head over to the Applications page and click the “Create Application” button. Give your new app a name, then choose “Native” for application type. Note the Domain and Client ID - we’ll need those later.
+Before creating the Ionic app, you’ll get Auth0 up and running. If you don’t have one already, create a [free Auth0 account](https://auth0.com) then head over to the Applications page and click the “Create Application” button. Give your new app a name, then choose “Native” for application type. Note the Domain and Client ID - you’ll need those later.
 
 ![Auth0 app configuration settings](auth0-app-settings.png)
 
@@ -48,7 +50,7 @@ With that in hand, set the *Allowed Callback URLs*. After the app user signs int
 
 Similarly, set the *Allowed Logout URLs*, which tell Auth Connect where to redirect to after the user logs out of Auth0. Again, use the “uniqueId://page” format. Usually, the app would redirect the user to a login page, so consider using “company-AppName://login.”
 
-Auth0 is now ready to use in our Ionic app.
+Auth0 is now ready to use in your Ionic app.
 
 ## Creating a new Ionic app
 
@@ -92,7 +94,7 @@ Open your code editor then navigate to `home.page.html` under `src/app/home`. Yo
 </ion-content>
 ```
 
-This is the main page we’ll protect behind an Auth0 login experience. We’ll update the design a bit later.
+This is the main page you’ll protect behind an Auth0 login experience. You’ll update the design a bit later.
 
 Next, create a Login page:
 
@@ -113,7 +115,7 @@ This creates a nearly-empty page that looks like:
 </ion-content>
 ```
 
-Next, prompt the user to sign in with some text as well as an `<ion-button>` [button component](https://ionicframework.com/docs/api/button). We’ll implement the `click` handler in a bit.
+Next, prompt the user to sign in with some text as well as an `<ion-button>` [button component](https://ionicframework.com/docs/api/button). You’ll implement the `click` handler in a bit.
 
 ```html
 <ion-header>
@@ -173,7 +175,7 @@ ionic cordova plugin add @ionic-enterprise/auth --variable AUTH_URL_SCHEME=com.c
 
 ## Implementing Ionic Auth Connect
 
-The basic login pieces are now in place - before we continue building the app’s UI, we need to create an `AuthenticationService` class that encapsulates Auth0 and Ionic Auth Connect’s login functionality.
+The basic login pieces are now in place - before continuing to build the app’s UI, you need to create an `AuthenticationService` class that encapsulates Auth0 and Ionic Auth Connect’s login functionality.
 
 Generate this class using the `ionic generate` command once again:
 
@@ -201,7 +203,7 @@ export class AuthenticationService extends IonicAuth {
       const auth0Config : IonicAuthOptions = {
         // the auth provider
         authConfig: 'auth0',
-        // The platform which we are running on
+        // The platform which the app is running on
         platform: 'cordova',
         // client or application id for provider
         clientID: 'FILL_IN',
@@ -357,7 +359,7 @@ export class HomePage implements OnInit {
 
 ## Secure the Home Page with an Angular Route Guard
 
-Currently, when our app is opened, it displays the Home page. We should secure this behind our new Login page using an Angular route guard along with Auth Connect’s built-in authentication checks. Create an `AuthGuard` class under the services folder:
+Currently, when the app is opened, it displays the Home page. This should be secured behind the new Login page using an Angular route guard along with Auth Connect’s built-in authentication checks. Create an `AuthGuard` class under the services folder:
 
 ```shell
 ionic generate guard services/auth
@@ -393,7 +395,7 @@ export class AuthGuard implements CanActivate {
 
 ## Finalize Securing the Home Page
 
-With the route guard implemented, we can apply it to the Home page, ensuring it remains accessible only to users who have logged into Auth0. Here’s what it looks like currently:
+With the route guard implemented, you can apply it to the Home page, ensuring it remains accessible only to users who have logged into Auth0. Here’s what it looks like currently:
 
 ```javascript
 const routes: Routes = [
@@ -419,11 +421,11 @@ const routes: Routes = [
 ];
 ```
 
-With our login experience built, it’s time for the best part: testing on a mobile device.
+With the login experience built, it’s time for the best part: testing on a mobile device.
 
 ## Run the App on a Device
 
-With Auth0 configured, an Ionic app created, and Auth Connect installed, we’re now ready to test out the app on a device. First, connect an iOS or Android device to your computer.
+With Auth0 configured, an Ionic app created, and Auth Connect installed, you're now ready to test out the app on a device. First, connect an iOS or Android device to your computer.
 
 If you’re using Cordova, run the following command in a terminal to build and deploy the app to your device:
 
