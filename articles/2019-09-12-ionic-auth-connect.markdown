@@ -44,7 +44,7 @@ Before creating the Ionic app, you’ll get Auth0 up and running. If you don’t
 
 ![Auth0 app configuration settings](auth0-app-settings.png)
 
-Next, determine your globally unique App Id, which is used both in Auth0 configuration as well as Cordova/Capacitor as well. Typically, this takes the form of “company-AppName” or reverse DNS style - “com.company.app.”
+Next, choose your globally unique App Id, which is used both in Auth0 configuration as well as Cordova/Capacitor as well. Typically, this takes the form of “company-AppName” or reverse DNS style - “com.company.app.”
 
 With that in hand, set the *Allowed Callback URLs*. After the app user signs into Auth0, this tells Auth Connect which page to redirect to in your app. Use the formula “uniqueId://page”, such as “company-AppName://callback.”
 
@@ -77,6 +77,7 @@ The app loads in a web browser, automatically displaying the Home page.
 Open your code editor then navigate to `home.page.html` under `src/app/home`. You’ll see something similar to the following:
 
 ```html
+<!-- src/app/home/home.page.html -->
 <ion-header>
   <ion-toolbar>
     <ion-title>
@@ -105,6 +106,7 @@ ionic generate page login
 This creates a nearly-empty page that looks like:
 
 ```html
+<!-- src/app/login/login.page.html -->
 <ion-header>
   <ion-toolbar>
     <ion-title>login</ion-title>
@@ -118,6 +120,7 @@ This creates a nearly-empty page that looks like:
 Next, prompt the user to sign in with some text as well as an `<ion-button>` [button component](https://ionicframework.com/docs/api/button). You’ll implement the `click` handler in a bit.
 
 ```html
+<!-- src/app/login/login.page.html -->
 <ion-header>
   <ion-toolbar>
     <ion-title>Welcome!</ion-title>
@@ -285,6 +288,7 @@ The audience field comes from your custom API of choice &mdash; the API Audience
 Back in `login.page.ts`, import `AuthenticationService` and call its login function when the button is clicked. As a bonus user experience enhancement, display a progress indicator while the user is logging into Auth0 using the Ionic `ion-loading` [loading indicator component](https://ionicframework.com/docs/api/loading). 
 
 ```javascript
+// src/app/login/login.page.ts
 async login() {
   // Display loading indicator while Auth Connect login window is open
   const loadingIndicator = await this.loadingController.create({
@@ -299,6 +303,7 @@ async login() {
 Next, revisit the Home page UI and welcome the app user who has just signed in. Display their name, email, and their Auth0 profile picture using an `ion-avatar` Ionic component.
 
 ```html
+<!-- src/app/home/home.page.html -->
 <ion-header>
   <ion-toolbar>
     <ion-title>
@@ -330,6 +335,7 @@ Here’s an example of what this looks like:
 Next, update the Home page’s logic in `home.page.ts` to retrieve the user’s info from Auth0 when the page loads, as well as wire up the Log Out button:
 
 ```javascript
+// src/app/home/home.page.ts
 import { Component, OnInit } from '@angular/core';
 import { AuthenticationService } from '../services/authentication.service';
 import { Router } from '@angular/router';
@@ -368,6 +374,7 @@ ionic generate guard services/auth
 Next, implement the `canActivate` method. The logic is very straightforward since Auth Connect manages the user’s login state for us. If the user has signed in already, then let them through. If not, then redirect to the login page.
 
 ```javascript
+// src/app/services/auth.guard.ts
 import { Injectable } from '@angular/core';
 import { CanActivate } from '@angular/router';
 import { AuthenticationService } from './authentication.service';
@@ -398,6 +405,7 @@ export class AuthGuard implements CanActivate {
 With the route guard implemented, you can apply it to the Home page, ensuring it remains accessible only to users who have logged into Auth0. Here’s what it looks like currently:
 
 ```javascript
+// src/app/app-routing.module.ts
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', loadChildren: () => import('./home/home.module')
@@ -409,6 +417,7 @@ const routes: Routes = [
 Import the `AuthGuard` and attach it to the Home page. Additionally, make the Login page the default navigation path: 
 
 ```javascript
+// src/app/app-routing.module.ts
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './services/auth.guard';
@@ -444,6 +453,8 @@ From there, click the Run button to build and deploy the app onto your device.
 You should see the Login page display within the app. Tap the login button to authenticate using Auth0, then get automatically redirected to the secure Home page. Here’s an example of what the complete experience looks like: 
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/L04P2ydnUB4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+The complete working example is available [on GitHub here](https://github.com/ionic-team/demo-authconnect-auth0).
 
 ## What’s Next?
 
