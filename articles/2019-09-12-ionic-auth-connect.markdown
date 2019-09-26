@@ -16,13 +16,13 @@ related:
 
 ## What is Ionic Framework?
 
-[Ionic Framework](https://ionicframework.com) is an open source UI toolkit for building performant, high-quality mobile and desktop apps using web technologies (HTML, CSS, and JavaScript). It’s focused on the frontend user experience, providing out-of-the-box UI interactions (controls, interactions, gestures, animations) so developers can focus on building the unique aspects of their apps. It’s easy to learn and integrates nicely with other frameworks, such as Angular, React, or Vue.
+[Ionic Framework](https://ionicframework.com/?utm_source=auth0&utm_medium=blog&utm_campaign=authconnect-auth0) is an open source UI toolkit for building performant, high-quality mobile and desktop apps using web technologies (HTML, CSS, and JavaScript). It’s focused on the frontend user experience, providing out-of-the-box UI interactions (controls, interactions, gestures, animations) so developers can focus on building the unique aspects of their apps. It’s easy to learn and integrates nicely with other frameworks, such as Angular, React, or Vue.
 
 ## What is Ionic Auth Connect?
 
-[Ionic Auth Connect](https://ionicframework.com/auth-connect) makes it easy to add secure authentication to any Ionic app running on iOS, Android, or the web. Using a simple, powerful API, it handles logging in and/or registering a user with an authentication provider (such as Auth0) using industry-standard OAuth/OpenId Connect.
+[Ionic Auth Connect](https://ionicframework.com/auth-connect?utm_source=auth0&utm_medium=blog&utm_campaign=authconnect-auth0) makes it easy to add secure authentisurecation to any Ionic app running on iOS, Android, or the web. Using a simple, powerful API, it handles logging in and/or registering a user with an authentication provider (such as Auth0) using industry-standard OAuth/OpenId Connect.
 
-> Note: Auth Connect requires an [Ionic Native Enterprise Edition](https://ionicframework.com/docs/enterprise) key in order to install and use the Ionic Auth Connect plugin. Enterprise Edition includes a reliable set of Native APIs & functionality that you can use in your Ionic app, quality controlled and maintained by the Ionic Team. If you are interested in acquiring a key or learning more, please [contact Ionic](https://ionicframework.com/enterprise/contact).
+> Note: Auth Connect requires an [Ionic Native Enterprise Edition](https://ionicframework.com/docs/enterprise?utm_source=auth0&utm_medium=blog&utm_campaign=authconnect-auth0) key in order to install and use the Ionic Auth Connect plugin. Enterprise Edition includes a reliable set of Native APIs & functionality that you can use in your Ionic app, quality controlled and maintained by the Ionic Team. If you are interested in acquiring a key or learning more, please [contact Ionic](https://ionicframework.com/enterprise/contact?utm_source=auth0&utm_medium=blog&utm_campaign=authconnect-auth0).
 
 ## What Will You Build?
 
@@ -117,7 +117,7 @@ This creates a nearly-empty page that looks like:
 </ion-content>
 ```
 
-Next, prompt the user to sign in with some text as well as an `<ion-button>` [button component](https://ionicframework.com/docs/api/button). You’ll implement the `click` handler in a bit.
+Next, prompt the user to sign in with some text as well as an `<ion-button>` [button component](https://ionicframework.com/docs/api/button?utm_source=auth0&utm_medium=blog&utm_campaign=authconnect-auth0). You’ll implement the `click` handler in a bit.
 
 ```html
 <!-- src/app/login/login.page.html -->
@@ -139,7 +139,7 @@ Next, prompt the user to sign in with some text as well as an `<ion-button>` [bu
 
 ## Installing Cordova/Capacitor and Auth Connect
 
-Let’s take a brief pause from code to install the native portions of this project. The Auth Connect plugin works with both [Cordova](https://cordova.apache.org/) and [Capacitor](https://capacitor.ionicframework.com), two OSS native app runtimes. Before installing Auth Connect, add one of these to your project. 
+Let’s take a brief pause from code to install the native portions of this project. The Auth Connect plugin works with both [Cordova](https://cordova.apache.org/) and [Capacitor](https://capacitor.ionicframework.com?utm_source=auth0&utm_medium=blog&utm_campaign=authconnect-auth0), two OSS native app runtimes. Before installing Auth Connect, add one of these to your project. 
 
 First, if you’ve picked Cordova and already have it installed, uninstall it then install the `@ionic-enterprise` version instead. The Ionic team needed to create it in order to work around a Cordova bug with scoped packages. It’s backward-compatible with the original project, too.
 
@@ -285,7 +285,7 @@ The audience field comes from your custom API of choice &mdash; the API Audience
 
 ## Complete the Login Experience
 
-Back in `login.page.ts`, import `AuthenticationService` and call its login function when the button is clicked. As a bonus user experience enhancement, display a progress indicator while the user is logging into Auth0 using the Ionic `ion-loading` [loading indicator component](https://ionicframework.com/docs/api/loading). 
+Back in `login.page.ts`, import `AuthenticationService` and call its login function when the button is clicked. As a bonus user experience enhancement, display a progress indicator while the user is logging into Auth0 using the Ionic `ion-loading` [loading indicator component](https://ionicframework.com/docs/api/loading?utm_source=auth0&utm_medium=blog&utm_campaign=authconnect-auth0). 
 
 ```javascript
 // src/app/login/login.page.ts
@@ -458,4 +458,4 @@ The complete working example is available [on GitHub here](https://github.com/io
 
 ## What’s Next?
 
-In this tutorial, you learned how to create an Ionic app that provides a simple login/logout experience using Auth0 and Ionic Auth Connect. From here, continue to add new features as you see fit.
+In this tutorial, you learned how to create an Ionic app that provides a simple login/logout experience using Auth0 and Ionic Auth Connect. From here, there are more paths you can take to build out the rest of your app. For example, you could design additional app features using a variety of the [100+ Ionic components](https://ionicframework.com/docs/components?utm_source=auth0&utm_medium=blog&utm_campaign=authconnect-auth0) available or add native device functionality using [Ionic Native plugins](https://ionicframework.com/docs/native/overview?utm_source=auth0&utm_medium=blog&utm_campaign=authconnect-auth0). If you have questions on Auth Connect or anything else Ionic, feel free to reach out to me on Twitter [https://twitter.com/dotNetkow]. See you next time!
