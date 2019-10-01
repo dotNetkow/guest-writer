@@ -22,7 +22,7 @@ related:
 
 [Ionic Auth Connect](https://ionicframework.com/auth-connect?utm_source=auth0&utm_medium=blog&utm_campaign=authconnect-auth0) makes it easy to add secure authentisurecation to any Ionic app running on iOS, Android, or the web. Using a simple, powerful API, it handles logging in and/or registering a user with an authentication provider (such as Auth0) using industry-standard OAuth/OpenId Connect.
 
-> Note: Auth Connect requires an [Ionic Native Enterprise Edition](https://ionicframework.com/docs/enterprise?utm_source=auth0&utm_medium=blog&utm_campaign=authconnect-auth0) key in order to install and use the Ionic Auth Connect plugin. Enterprise Edition includes a reliable set of Native APIs & functionality that you can use in your Ionic app, quality controlled and maintained by the Ionic Team. If you are interested in acquiring a key or learning more, please [contact Ionic](https://ionicframework.com/enterprise/contact?utm_source=auth0&utm_medium=blog&utm_campaign=authconnect-auth0).
+> Note: Auth Connect requires an [Ionic Native](https://ionicframework.com/docs/enterprise?utm_source=auth0&utm_medium=blog&utm_campaign=authconnect-auth0) key in order to install and use the Ionic Auth Connect plugin. Ionic Native includes a reliable set of Native APIs & functionality that you can use in your Ionic app, quality controlled and maintained by the Ionic Team. If you are interested in acquiring a key or learning more, please [contact Ionic](https://ionicframework.com/enterprise/contact?utm_source=auth0&utm_medium=blog&utm_campaign=authconnect-auth0).
 
 ## What Will You Build?
 
